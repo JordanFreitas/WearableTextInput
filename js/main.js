@@ -34,7 +34,7 @@
     document.getElementById("btn3").addEventListener("click", function() {
          cont1.style.display = "none";
         cont2.style.display = "none";
-       cont3.getElementById("cont3").style.display = "block";
+       cont3.style.display = "block";
        cont4.style.display = "none";
        cont5.style.display = "none";
        cont6.style.display = "none";
