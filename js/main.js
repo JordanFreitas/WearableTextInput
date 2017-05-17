@@ -62,8 +62,15 @@
        cont4.style.display = "none";
        cont5.style.display = "none";
        cont6.style.display = "block";
-      
+
     });
+
+    var message = "";
+    document.getElementById("t").addEventListener("click", function() {
+    message += 't'
+    document.getElementById("container").appendChild(message);
+  });
+
 });
 
 
