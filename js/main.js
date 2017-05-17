@@ -7,54 +7,61 @@
     var container = document.getElementById('input-p');
     container.appendChild(input);
 
+    var cont1 = document.getElementById("cont1");
+     var cont2 = document.getElementById("cont2");
+      var cont3 = document.getElementById("cont3");
+       var cont4 = document.getElementById("cont4");
+        var cont5 = document.getElementById("cont5");
+         var cont6 = document.getElementById("cont6");
+
     // Assign a click event to your button that:
     document.getElementById("btn1").addEventListener("click", function() {
-        document.getElementById("cont1").style.display = "block";
-        document.getElementById("cont2").style.display = "none";
-       document.getElementById("cont3").style.display = "none";
-       document.getElementById("cont4").style.display = "none";
-       document.getElementById("cont5").style.display = "none";
-       document.getElementById("cont6").style.display = "none";
+        cont1.style.display = "block";
+        cont2.style.display = "none";
+       cont3.style.display = "none";
+      cont4.style.display = "none";
+       cont5.style.display = "none";
+       cont6.style.display = "none";
     });
     document.getElementById("btn2").addEventListener("click", function() {
-         document.getElementById("cont1").style.display = "none";
-        document.getElementById("cont2").style.display = "block";
-       document.getElementById("cont3").style.display = "none";
-       document.getElementById("cont4").style.display = "none";
-       document.getElementById("cont5").style.display = "none";
-       document.getElementById("cont6").style.display = "none";
+         cont1.style.display = "none";
+        cont2.style.display = "block";
+       cont3.style.display = "none";
+       cont4.style.display = "none";
+       cont5.style.display = "none";
+       cont6.style.display = "none";
     });
     document.getElementById("btn3").addEventListener("click", function() {
-         document.getElementById("cont1").style.display = "none";
-        document.getElementById("cont2").style.display = "none";
-       document.getElementById("cont3").style.display = "block";
-       document.getElementById("cont4").style.display = "none";
-       document.getElementById("cont5").style.display = "none";
-       document.getElementById("cont6").style.display = "none";
+         cont1.style.display = "none";
+        cont2.style.display = "none";
+       cont3.getElementById("cont3").style.display = "block";
+       cont4.style.display = "none";
+       cont5.style.display = "none";
+       cont6.style.display = "none";
     });
     document.getElementById("btn4").addEventListener("click", function() {
-        document.getElementById("cont1").style.display = "none";
-        document.getElementById("cont2").style.display = "none";
-       document.getElementById("cont3").style.display = "none";
-       document.getElementById("cont4").style.display = "block";
-       document.getElementById("cont5").style.display = "none";
-       document.getElementById("cont6").style.display = "none";
+        cont1.style.display = "none";
+        cont2.style.display = "none";
+       cont3.style.display = "none";
+       cont4.style.display = "block";
+       cont5.style.display = "none";
+       cont6.style.display = "none";
     });
     document.getElementById("btn5").addEventListener("click", function() {
-        document.getElementById("cont1").style.display = "none";
-        document.getElementById("cont2").style.display = "none";
-       document.getElementById("cont3").style.display = "none";
-       document.getElementById("cont4").style.display = "none";
-       document.getElementById("cont5").style.display = "block";
-       document.getElementById("cont6").style.display = "none";
+        cont1.style.display = "none";
+        cont2.style.display = "none";
+       cont3.style.display = "none";
+       cont4.style.display = "none";
+       cont5.style.display = "block";
+       cont6.style.display = "none";
     });
     document.getElementById("btn6").addEventListener("click", function() {
-          document.getElementById("cont1").style.display = "none";
-        document.getElementById("cont2").style.display = "none";
-       document.getElementById("cont3").style.display = "none";
-       document.getElementById("cont4").style.display = "none";
-       document.getElementById("cont5").style.display = "none";
-       document.getElementById("cont6").style.display = "block";
+         cont1.style.display = "none";
+       cont2.style.display = "none";
+       cont3.style.display = "none";
+       cont4.style.display = "none";
+       cont5.style.display = "none";
+       cont6.style.display = "block";
       
     });
 });
