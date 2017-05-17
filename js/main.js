@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+/* document.addEventListener("DOMContentLoaded", function(event) {
     // Create a new input element
     var input = document.createElement("input");
     input.className = "input"; // set the CSS class
