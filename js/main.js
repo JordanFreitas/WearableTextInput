@@ -65,18 +65,17 @@
 
     });
 
-    function() {
-      
-    }
+
+    var message = "";
 
     document.getElementById("t").addEventListener("click", function() {
-        var message = "t";
+        message += "t";
         var node = document.createTextNode(message);
         document.getElementsByClassName('container')[0].appendChild(node);
     });
 
     document.getElementById("h").addEventListener("click", function() {
-        var message = "h";
+        message += "h";
         var node = document.createTextNode(message);
         document.getElementsByClassName('container')[0].appendChild(node);
     });
