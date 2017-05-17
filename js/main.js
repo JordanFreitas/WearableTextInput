@@ -65,11 +65,21 @@
 
     });
 
-    var message = "";
+    function() {
+      
+    }
+
     document.getElementById("t").addEventListener("click", function() {
-    message += 't'
-    document.getElementById("container").appendChild(message);
-  });
+        var message = "t";
+        var node = document.createTextNode(message);
+        document.getElementsByClassName('container')[0].appendChild(node);
+    });
+
+    document.getElementById("h").addEventListener("click", function() {
+        var message = "h";
+        var node = document.createTextNode(message);
+        document.getElementsByClassName('container')[0].appendChild(node);
+    });
 
 });
 
