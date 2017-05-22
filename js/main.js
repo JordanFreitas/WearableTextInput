@@ -1,11 +1,11 @@
- 
+
 
 
  document.addEventListener("DOMContentLoaded", function(event) {
     // Create a new input element
     var input = document.createElement("input");
     input.className = "input"; // set the CSS class
-
+    cont1.style.display = "block";
     // Append the new input element to you DOM in the desired location
     var container = document.getElementById('input-p');
     container.appendChild(input);
