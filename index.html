@@ -4,71 +4,74 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title>M9: Exercise 3</title>
     <link href="css/main.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type='text/javascript' src="js/main.js"></script>
+    <script src="js/hammer.min.js"></script>
 </head>
 
-<body>
+<body id="touchTest">
 	<div class="cc container" id="inner">
-		<p id="input-p">(put an input here!)</p>
-		<div class="text">Message:</div>
-        <button id="btn1" class="keyBtn">1</button>
-            <div id="cont1" class="charCont">
-                <button class="charL" id='t'>t</button>
-                <button class="charL" id='h'>h</button>
-                <button class="charL" id='e'>e</button>
-                <button class="charL" id='r'>r</button>
-                <button class="charL" id='s'>s</button>
-                <button class="charL" id='l'>l</button>
-            </div>
-        <button id="btn2" class="keyBtn">2</button>
-            <div id="cont2" class="charCont">
-                <button class="charL" id='i'>i</button>
-                <button class="charL" id='g'>g</button>
-                <button class="charL" id='a'>a</button>
-                <button class="charL" id='d'>d</button>
-                <button class="charL" id='n'>n</button>
-                <button class="charL" id='m'>m</button>
-            </div>
-        <button id="btn3" class="keyBtn">3</button>
-            <div id="cont3" class="charCont">
-              <button class="charL" id='o'>o</button>
-              <button class="charL" id='u'>u</button>
-              <button class="charL" id='c'>c</button>
-              <button class="charL" id='p'>p</button>
-              <button class="charL" id='k'>k</button>
-              <button class="charL" id='f'>f</button>
-            </div>
-        <button id="btn4" class="keyBtn">4</button>
-            <div id="cont4" class="charCont">
-              <button class="charL" id='b'>b</button>
-              <button class="charL" id='q'>q</button>
-              <button class="charL" id='j'>j</button>
-              <button class="charL" id='z'>z</button>
-              <button class="charL" id='q'>q</button>
-              <button class="charL" id='y'>y</button>
-            </div>
-        <button id="btn5" class="keyBtn">5</button>
-            <div id="cont5" class="charCont">
-              <button class="charL" id='j'>j</button>
-              <button class="charL" id='v'>v</button>
-              <button class="charL" id='f'>f</button>
-              <button class="charL" id='w'>w</button>
-              <button class="charL" id='b'>b</button>
-              <button class="charL" id='q'>q</button>
-            </div>
-        <button id="btn6" class="keyBtn">6</button>
-            <div id="cont6" class="charCont">
-              <button class="charL" id='z'>z</button>
-              <button class="charL" id='x'>x</button>
-              <button class="charL" id='.'>.</button>
-              <button class="charL" id=','>,</button>
-              <button class="charL" id='?'>?</button>
-              <button class="charL" id='!'>!</button>
-            </div>
+		<div class="keyboard1">
+      <div id="cont1" class="charCont">
+          <button class="charL" id='t'>t</button>
+          <button class="charL" id='h'>h</button>
+          <button class="charL" id='e'>e</button>
+          <button class="charL" id='r'>r</button>
+          <button class="charL" id='s'>s</button>
+          <button class="charL" id='l'>l</button>
+      </div>
+      <div id="cont2" class="charCont">
+          <button class="charL" id='i'>i</button>
+          <button class="charL" id='g'>g</button>
+          <button class="charL" id='a'>a</button>
+          <button class="charL" id='d'>d</button>
+          <button class="charL" id='n'>n</button>
+          <button class="charL" id='m'>m</button>
+      </div>
+      <div id="cont3" class="charCont">
+        <button class="charL" id='o'>o</button>
+        <button class="charL" id='u'>u</button>
+        <button class="charL" id='c'>c</button>
+        <button class="charL" id='p'>p</button>
+        <button class="charL" id='k'>k</button>
+        <button class="charL" id='f'>f</button>
+      </div>
+      <div id="cont4" class="charCont">
+        <button class="charL" id='b'>b</button>
+        <button class="charL" id='q'>q</button>
+        <button class="charL" id='j'>j</button>
+        <button class="charL" id='z'>z</button>
+        <button class="charL" id='q'>q</button>
+        <button class="charL" id='y'>y</button>
+      </div>
+      <div id="cont5" class="charCont">
+        <button class="charL" id='j'>j</button>
+        <button class="charL" id='v'>v</button>
+        <button class="charL" id='f'>f</button>
+        <button class="charL" id='w'>w</button>
+        <button class="charL" id='b'>b</button>
+        <button class="charL" id='q'>q</button>
+      </div>
+      <div id="cont6" class="charCont">
+        <button class="charL" id='z'>z</button>
+        <button class="charL" id='x'>x</button>
+        <button class="charL" id='.'>.</button>
+        <button class="charL" id=','>,</button>
+        <button class="charL" id='?'>?</button>
+        <button class="charL" id='!'>!</button>
+      </div>
+      <button id="btn1" class="keyBtn">1</button>
+      <button id="btn2" class="keyBtn">2</button>
+      <button id="btn3" class="keyBtn">3</button>
+      <button id="btn4" class="keyBtn">4</button>
+      <button id="btn5" class="keyBtn">5</button>
+      <button id="btn6" class="keyBtn">6</button>
+    </div>
+
 		<!--<button id="a" class="btn">Assign an event to me!</button>-->
 
     <p id="input-p">(put an input here!)</p>
