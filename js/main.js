@@ -94,7 +94,6 @@
         });
 
 
-
        hamTouch.on("swipeup", function(event){
         cont1.style.display = "none";
            cont2.style.display = "none";
@@ -115,10 +114,9 @@
            alert("down");
         });
         hamTouch.on("swipeleft", function(event){
-            containerMain.removeChild(containerMain.lastChild);
+            containerMain[0].removeChild(this)
             message = message.slice(0,-1);
-            var node = document.createTextNode(message);
-            document.getElementsByClassName('container')[0].appendChild(node);
+
             console.log(message);
 
         });
