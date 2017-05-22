@@ -69,56 +69,83 @@
 
     });
 
+    var hammertime = new Hammer(container, );
 
-    var message = "";
+        var touchTest = document.getElementById("touchTest");
 
-    $("button").click(function() {
+        var hamTouch = new Hammer(touchTest);
 
-        var letter = this.id; // or alert($(this).attr('id'));
-        if (this.className == "charL") {
-            message += letter;
-            var node = document.createTextNode(letter);
+        hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+        var message = "";
+        var containerMain = document.getElementsByClassName('container');
+
+
+        // var currentLetter = "";
+        $("button").click(function() {
+
+            var letter = this.id; // or alert($(this).attr('id'));
+            if (this.className == "charL") {
+                // currentLetter = letter;
+                message += letter;
+                var node = document.createTextNode(letter);
+                containerMain[0].appendChild(node);
+                //console.log(message);
+            }
+        });
+
+
+
+       hamTouch.on("swipeup", function(event){
+        cont1.style.display = "none";
+           cont2.style.display = "none";
+           cont3.style.display = "none";
+           cont4.style.display = "none";
+           cont5.style.display = "none";
+           cont6.style.display = "block";
+           alert("up");
+
+        });
+        hamTouch.on("swipedown", function(event){
+           cont1.style.display = "none";
+           cont2.style.display = "none";
+           cont3.style.display = "none";
+           cont4.style.display = "none";
+           cont5.style.display = "block";
+           cont6.style.display = "none";
+           alert("down");
+        });
+        hamTouch.on("swipeleft", function(event){
+            containerMain.removeChild(containerMain.lastChild);
+            message = message.slice(0,-1);
+            var node = document.createTextNode(message);
             document.getElementsByClassName('container')[0].appendChild(node);
             console.log(message);
-        }
-    });
 
-    $("p").on("swipe",function(){
-            $(this).hide();
-    });
-
-    // var hammertime = new Hammer(container, myOptions);
-
-    //hammertime.on('pan', function(ev) {
-	// console.log(ev);
-    // console.log("test");
-    // });
-    var touchTest = document.getElementById("touchTest");
-    Hammer(touchTest).on("swipe", function(event){
-    alert("test");
+        });
+        hamTouch.on("swiperight", function(event){
+            message += " ";
+           console.log(message);
+        });
     });
 
 
-});
 
 
 
+    //    var cont1 = document.getElementById("cont6");
+    //         if (cont1.style.display == 'none') {
+    //             document.getElementById("cont1").style.display = "initial";
+    //                   }
+    //         else {
+    //             console.log("here");
+    //             document.getElementById("cont1").style.display = "none";
+    //         }
+            // // Creates a new paragraph of text from your input element
+            // var txt = document.getElementsByTagName('input')[0].value;
+            // var paragraph = document.createElement("p");
+            // var node = document.createTextNode(txt);
+            // paragraph.appendChild(node);
+            // document.getElementsByClassName('container')[0].appendChild(paragraph);
 
-
-//    var cont1 = document.getElementById("cont6");
-//         if (cont1.style.display == 'none') {
-//             document.getElementById("cont1").style.display = "initial";
-//                   }
-//         else {
-//             console.log("here");
-//             document.getElementById("cont1").style.display = "none";
-//         }
-        // // Creates a new paragraph of text from your input element
-        // var txt = document.getElementsByTagName('input')[0].value;
-        // var paragraph = document.createElement("p");
-        // var node = document.createTextNode(txt);
-        // paragraph.appendChild(node);
-        // document.getElementsByClassName('container')[0].appendChild(paragraph);
-
-        // // Clears the text of the input element
-        // document.getElementsByTagName('input')[0].value = '';
+            // // Clears the text of the input element
+            // document.getElementsByTagName('input')[0].value = '';
