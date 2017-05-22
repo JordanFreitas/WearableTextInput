@@ -68,28 +68,22 @@
 
     var message = "";
 
-    document.getElementById("t").addEventListener("click", function() {
-        message += "t";
-<<<<<<< HEAD
-        var node = document.createTextNode(message);
-        $('.container div').last().remove();
-=======
-        var node = document.createTextNode("t");
->>>>>>> 1027494d17007f469678ff1efb43d1544680ac78
-        document.getElementsByClassName('container')[0].appendChild(node);
-        console.log(message);
-    });
+    $("button").click(function() {
 
-    document.getElementById("h").addEventListener("click", function() {
-        message += "h";
-        var node = document.createTextNode("h");
-        document.getElementsByClassName('container')[0].appendChild(node);
-        console.log(message);
+        var letter = this.id; // or alert($(this).attr('id'));
+        if (this.className == "charL") {
+            message += letter;
+            var node = document.createTextNode(letter);
+            document.getElementsByClassName('container')[0].appendChild(node);
+            //console.log(message);
+        }
     });
 
     $("p").on("swipe",function(){
             $(this).hide();
     });
+
+
 
 
 });
