@@ -56,7 +56,7 @@
        cont6.style.display = "none";
     });
     document.getElementById("btn6").addEventListener("click", function() {
-         cont1.style.display = "none";
+       cont1.style.display = "none";
        cont2.style.display = "none";
        cont3.style.display = "none";
        cont4.style.display = "none";
@@ -70,19 +70,30 @@
 
     document.getElementById("t").addEventListener("click", function() {
         message += "t";
+<<<<<<< HEAD
         var node = document.createTextNode(message);
         $('.container div').last().remove();
+=======
+        var node = document.createTextNode("t");
+>>>>>>> 1027494d17007f469678ff1efb43d1544680ac78
         document.getElementsByClassName('container')[0].appendChild(node);
+        console.log(message);
     });
 
     document.getElementById("h").addEventListener("click", function() {
         message += "h";
-        var node = document.createTextNode(message);
+        var node = document.createTextNode("h");
         document.getElementsByClassName('container')[0].appendChild(node);
+        console.log(message);
+    });
+
+    $("p").on("swipe",function(){
+            $(this).hide();
     });
 
 
 });
+
 
 
 
