@@ -71,6 +71,7 @@
     document.getElementById("t").addEventListener("click", function() {
         message += "t";
         var node = document.createTextNode(message);
+        $('.container div').last().remove();
         document.getElementsByClassName('container')[0].appendChild(node);
     });
 
@@ -79,6 +80,7 @@
         var node = document.createTextNode(message);
         document.getElementsByClassName('container')[0].appendChild(node);
     });
+
 
 });
 
