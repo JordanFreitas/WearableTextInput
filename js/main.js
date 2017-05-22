@@ -5,7 +5,7 @@
     // Create a new input element
     var input = document.createElement("input");
     input.className = "input"; // set the CSS class
-    cont1.style.display = "block";
+
     // Append the new input element to you DOM in the desired location
     var container = document.getElementById('input-p');
     container.appendChild(input);
@@ -16,6 +16,7 @@
        var cont4 = document.getElementById("cont4");
         var cont5 = document.getElementById("cont5");
          var cont6 = document.getElementById("cont6");
+
 
     // Assign a click event to your button that:
     document.getElementById("btn1").addEventListener("click", function() {
@@ -68,63 +69,36 @@
 
     });
 
-    var hammertime = new Hammer(container, );
 
-    var touchTest = document.getElementById("touchTest");
-
-    var hamTouch = new Hammer(touchTest);
-
-    hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     var message = "";
-    var containerMain = document.getElementsByClassName('container');
-   
 
-    // var currentLetter = "";
     $("button").click(function() {
 
         var letter = this.id; // or alert($(this).attr('id'));
         if (this.className == "charL") {
-            // currentLetter = letter;
             message += letter;
             var node = document.createTextNode(letter);
-            containerMain[0].appendChild(node);
-            //console.log(message);
+            document.getElementsByClassName('container')[0].appendChild(node);
+            console.log(message);
         }
     });
 
+    $("p").on("swipe",function(){
+            $(this).hide();
+    });
+
+    // var hammertime = new Hammer(container, myOptions);
+
+    //hammertime.on('pan', function(ev) {
+	// console.log(ev);
+    // console.log("test");
+    // });
+    var touchTest = document.getElementById("touchTest");
+    Hammer(touchTest).on("swipe", function(event){
+    alert("test");
+    });
 
 
-   hamTouch.on("swipeup", function(event){
-    cont1.style.display = "none";
-       cont2.style.display = "none";
-       cont3.style.display = "none";
-       cont4.style.display = "none";
-       cont5.style.display = "none";
-       cont6.style.display = "block";
-       alert("up");
-
-    });
-    hamTouch.on("swipedown", function(event){
-       cont1.style.display = "none";
-       cont2.style.display = "none";
-       cont3.style.display = "none";
-       cont4.style.display = "none";
-       cont5.style.display = "block";
-       cont6.style.display = "none";
-       alert("down");
-    });
-    hamTouch.on("swipeleft", function(event){
-        containerMain.removeChild(containerMain.lastChild);
-        message = message.slice(0,-1);
-        var node = document.createTextNode(message);
-        document.getElementsByClassName('container')[0].appendChild(node);
-        console.log(message);
-
-    });
-    hamTouch.on("swiperight", function(event){
-        message += " ";
-       console.log(message);
-    });
 });
 
 
