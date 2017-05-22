@@ -124,6 +124,8 @@
         });
         hamTouch.on("swiperight", function(event){
             message += " ";
+            var node = document.createTextNode(" ");
+            containerMain[0].appendChild(node);
            console.log(message);
         });
     });
