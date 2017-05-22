@@ -1,3 +1,6 @@
+ 
+
+
  document.addEventListener("DOMContentLoaded", function(event) {
     // Create a new input element
     var input = document.createElement("input");
@@ -83,10 +86,20 @@
             $(this).hide();
     });
 
+    // var hammertime = new Hammer(container, myOptions);
 
+    // hammertime.on('pan', function(ev) {
+	// console.log(ev);
+    // console.log("test");
+    // });
+    var touchTest = document.getElementById("touchTest");
+    Hammer(touchTest).on("swipe", function(event){
+    alert("test");
+    });
 
 
 });
+
 
 
 
