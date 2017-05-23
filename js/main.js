@@ -95,7 +95,6 @@
         });
 
 
-
        hamTouch.on("swipeup", function(event){
         cont1.style.display = "none";
            cont2.style.display = "none";
@@ -121,6 +120,7 @@
 
             // var node = document.createTextNode(message);
             // document.getElementsByClassName('container')[0].appendChild(node);
+
             console.log(message);
             message1.innerHTML = message;
 
