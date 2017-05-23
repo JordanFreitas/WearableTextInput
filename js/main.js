@@ -78,6 +78,7 @@
         hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         var message = "";
         var containerMain = document.getElementsByClassName('container');
+        var message1 = document.getElementById("msg1");
 
 
         // var currentLetter = "";
@@ -115,11 +116,13 @@
            alert("down");
         });
         hamTouch.on("swipeleft", function(event){
-            containerMain.removeChild(containerMain.lastChild);
+            // containerMain.removeChild(containerMain.lastChild);
             message = message.slice(0,-1);
-            var node = document.createTextNode(message);
-            document.getElementsByClassName('container')[0].appendChild(node);
+
+            // var node = document.createTextNode(message);
+            // document.getElementsByClassName('container')[0].appendChild(node);
             console.log(message);
+            message1.innerHTML = message;
 
         });
         hamTouch.on("swiperight", function(event){
