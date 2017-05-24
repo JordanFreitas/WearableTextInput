@@ -2,6 +2,34 @@ p {
   opacity:.7
 }
 
+.text {
+  height: 100px;
+  max-width: 246px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 2px;
+  word-wrap: break-word;
+}
+
+.sectionBtn {
+  position: absolute;
+  bottom: 0;
+}
+
+.keyBtn {
+  display:inline-block;
+  width: 36px;
+  height: 30px;
+}
+
+.charL {
+  margin-bottom: 4px;
+  margin-right: 2px;
+  display:inline-block;
+  height: 50px;
+  width: 54px;
+}
+
 .container {
   max-width: 272px;
     border: 2px solid gray;
@@ -9,8 +37,8 @@ p {
     padding: 10px;
     box-shadow: 5px 5px 10px #888888;
     position:fixed;
-top:40%;
-left:40%;
+    top:40%;
+    left:40%;
 }
 .cc{
   height: 272px;

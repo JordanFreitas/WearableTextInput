@@ -4,11 +4,11 @@
  document.addEventListener("DOMContentLoaded", function(event) {
     // Create a new input element
     var input = document.createElement("input");
-    input.className = "input"; // set the CSS class
+    //input.className = "input"; // set the CSS class
 
     // Append the new input element to you DOM in the desired location
     var container = document.getElementById('input-p');
-    container.appendChild(input);
+    //container.appendChild(input);
 
     var cont1 = document.getElementById("cont1");
      var cont2 = document.getElementById("cont2");
@@ -72,9 +72,7 @@
     var hammertime = new Hammer(container, );
 
         var touchTest = document.getElementById("touchTest");
-
         var hamTouch = new Hammer(touchTest);
-
         hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         var message = "";
         var containerMain = document.getElementsByClassName('container');
@@ -89,7 +87,8 @@
                 // currentLetter = letter;
                 message += letter;
                 var node = document.createTextNode(letter);
-                containerMain[0].appendChild(node);
+                message1.innerHTML = message;
+                //containerMain[0].appendChild(node);
                 //console.log(message);
             }
         });
@@ -128,7 +127,8 @@
         hamTouch.on("swiperight", function(event){
             message += " ";
             var node = document.createTextNode(" ");
-            containerMain[0].appendChild(node);
+            //containerMain[0].appendChild(node);
+            message1.innerHTML = message;
            console.log(message);
         });
     });
