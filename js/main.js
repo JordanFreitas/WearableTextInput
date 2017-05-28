@@ -69,19 +69,21 @@
 
     });
 
+
+
+
     var hammertime = new Hammer(container, );
 
         var touchTest = document.getElementById("touchTest");
         var hamTouch = new Hammer(touchTest);
-        hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         var message = "";
+        hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         var containerMain = document.getElementsByClassName('container');
         var message1 = document.getElementById("msg1");
-
+        var sent = document.getElementsById("history");
 
         // var currentLetter = "";
         $("button").click(function() {
-
             var letter = this.id; // or alert($(this).attr('id'));
             if (this.className == "charL") {
                 // currentLetter = letter;
@@ -90,9 +92,11 @@
                 message1.innerHTML = message;
                 //containerMain[0].appendChild(node);
                 //console.log(message);
+            } else if (this.className == "send") {
+                history.innerHTML = message;
+                message = "";
             }
         });
-
 
        hamTouch.on("swipeup", function(event){
         cont1.style.display = "none";
