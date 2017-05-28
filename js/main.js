@@ -80,7 +80,7 @@
         hamTouch.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         var containerMain = document.getElementsByClassName('container');
         var message1 = document.getElementById("msg1");
-        var sent = document.getElementsById("history");
+        var sent = document.getElementById("chatlog");
 
         // var currentLetter = "";
         $("button").click(function() {
@@ -88,13 +88,19 @@
             if (this.className == "charL") {
                 // currentLetter = letter;
                 message += letter;
-                var node = document.createTextNode(letter);
+                //var node = document.createTextNode(letter);
                 message1.innerHTML = message;
                 //containerMain[0].appendChild(node);
                 //console.log(message);
             } else if (this.className == "send") {
-                history.innerHTML = message;
+                var node = document.createTextNode(message);
+                document.getElementsByClassName('history')[0].appendChild(node);
+                var br = document.createElement("br");
+                document.getElementsByClassName('history')[0].appendChild(br);
+                //sent.innerHTML = message;
                 message = "";
+                message1.innerHTML = message;
+
             }
         });
 
