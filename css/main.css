@@ -66,3 +66,12 @@ p {
 .charCont{
   display: none;
 }
+.keyboard1{
+  display: block;
+}
+.keyboard2{
+  display:none;
+}
+.keyboard3{
+  display: none;
+}

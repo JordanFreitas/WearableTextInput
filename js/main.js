@@ -9,11 +9,12 @@
     // Append the new input element to you DOM in the desired location
     var container = document.getElementById('input-p');
     //container.appendChild(input);
-     var keyboard1 = document.getElementById('key1').style.display = "none";
-     var keyboard2 = document.getElementById('key2').style.display = "none";
-     var keyboard3 = document.getElementById('key3').style.display = "none";
-
-    
+      var keyboard1 = document.getElementById('key1');
+      var keyboard2 = document.getElementById('key2');
+      var keyboard3 = document.getElementById('key3');
+    //   keyboard1.style.display = "block";      
+    //   keyboard2.style.display = "none";
+    //   keyboard3.style.display = "none";
 
     var cont1 = document.getElementById("cont1");
     var cont2 = document.getElementById("cont2");
@@ -109,7 +110,7 @@
         });
 
        hamTouch.on("swipeup", function(event){
-        cont1.style.display = "none";
+           cont1.style.display = "none";
            cont2.style.display = "none";
            cont3.style.display = "none";
            cont4.style.display = "none";
@@ -118,13 +119,69 @@
            alert("up");
 
         });
+
+
+//         var hamTouch1 = new Hammer(keyboard1);
+//          hamTouch1.on("swipedown", function(event){
+//                         keyboard1.style.display = "none"
+//                         keyboard2.style.display = "block";
+//                         keyboard3.style.display = "none";
+//                         console.log("display3");                        
+//                 });
+
+//         var hamTouch2 = new Hammer(keyboard2);
+//  hamTouch2.on("swipedown", function(event){
+//                         keyboard1.style.display = "none"
+//                         keyboard2.style.display = "none";
+//                         keyboard3.style.display = "block";
+//                         console.log("display3");                        
+//                 });
+//         var hamTouch3 = new Hammer(keyboard3);
+//                  hamTouch3.on("swipedown", function(event){
+//                         keyboard1.style.display = "block"
+//                         keyboard2.style.display = "none";
+//                         keyboard3.style.display = "none";
+//                         console.log("display3");                        
+//                 });
         hamTouch.on("swipedown", function(event){
            
-             var classes = ['key1','key2','key3'];
-                $('div').each(function(){
-            this.className = classes[($.inArray(this.className, classes)+1)%classes.length];
-            document.getElementById(this.className).style.display = "block";
-                });
+            //  var classes = ['key1','key2','key3'];
+                // $('div').each(function(){
+                    console.log("check");
+                    // this.className1 = classes[($.inArray(this.className, classes)+1)%classes.length];
+                    // this.className2 = classes[($.inArray(this.className, classes)+2)%classes.length];
+                    // this.className3 = classes[($.inArray(this.className, classes)+3)%classes.length];
+                    // console.log(this.className1);
+                    // console.log(this.className2);
+                    // console.log(this.className3);
+                    
+                    console.log(keyboard1);
+                    // if(document.getElementById('key1').style.display = "block"){
+                    //    keyboard1.style.display = "none"
+                    //     keyboard2.style.display = "block";
+                    //     keyboard3.style.display = "none";
+                    //     console.log("display2");
+                    // }
+                    if(keyboard1.style.display == 'block'){
+                        keyboard1.style.display = "none";
+                        keyboard2.style.display = "block";
+                        keyboard3.style.display = "none";
+                        console.log("display3");                        
+                    }
+                    if(keyboard2.style.display == 'block'){
+                        keyboard1.style.display = "none";
+                        keyboard2.style.display = "none";
+                        keyboard3.style.display = "block";
+                        console.log("display3");                        
+                    }
+                    if(keyboard3.style.display == 'block'){
+                        keyboard1.style.display = "block";
+                        keyboard2.style.display = "none";
+                        keyboard3.style.display = "none";
+                        console.log("display1");                        
+                    }
+
+                // });
                 });
 
 
