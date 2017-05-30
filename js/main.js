@@ -2,6 +2,73 @@
 
 
  document.addEventListener("DOMContentLoaded", function(event) {
+
+    var userData = document.implementation.createDocument(null, "TextTest");
+    var entriesCount = 0;
+    
+	var downloadButton;
+
+    var currentString = document.getElementById('displayText');
+     var count = document.getElementById('counter');
+
+	 var globalIndex = 0; //current index in the array of string
+     count.innerHTML = globalIndex+1;
+
+	var strings = [
+                    'my watch fell in the water',
+                    'prevailing wind from the east',
+                    'never too rich and never too thin',
+                    'breathing is difficult',
+                    'I can see the rings on Saturn',
+                    'physics and chemistry are hard',
+                    'my bank account is overdrawn',
+                    'elections bring out the best',
+                    'we are having spaghetti',
+                    'time to go shopping',
+                    'a problem with the engine',
+                    'elephants are afraid of mice',
+                    'my favorite place to visit',
+                    'three two one zero blast off',
+                    'my favorite subject is psychology',
+                    'circumstances are unacceptable',
+                    'watch out for low flying objects',
+                    'if at first you do not succeed',
+                    'please provide your date of birth',
+                    'we run the risk of failure',
+                    'prayer in schools offends some',
+                    'he is just like everyone else',
+                    'great disturbance in the force',
+                    'love means many things',
+                    'you must be getting old',
+                    'the world is a stage',
+                    'can I skate with sister today',
+                    'neither a borrower nor a lender be',
+                    'one heck of a question',
+                    'question that must be answered',
+                    'beware the ides of March',
+                    'double double toil and trouble',
+                    'the power of denial',
+                    'I agree with you',
+                    'do not say anything',
+                    'play it again Sam',
+                    'the force is with you',
+                    'you are not a jedi yet',
+                    'an offer you cannot refuse',
+                    'are you talking to me',
+                    'yes you are very smart',
+                    'all work and no play',
+                    'hair gel is very greasy',
+                    'Valium in the economy size',
+                    'the facts get in the way'
+			];
+	currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>'; 
+ 
+	appendTrial(strings, 0); // set initial first trial
+
+
+
+
+
     // Create a new input element
     var input = document.createElement("input");
     //input.className = "input"; // set the CSS class
@@ -80,6 +147,54 @@
 
 
 
+    function appendTrial(strings, index) {
+		var trialElement = userData.createElement("Trial");		
+		trialElement.setAttribute("number", index + 1); // trial number is not based 0, so add 1
+		if (index < 5) { //first 5 of 45 are just practice 
+			trialElement.setAttribute("testing", "false");
+		} else { 
+			trialElement.setAttribute("testing", "true");		
+		}
+		trialElement.setAttribute("entries", entriesCount);
+		userData.getElementsByTagName("TextTest")[0].appendChild(trialElement);	
+		appendPresented(strings, index);	
+	}
+
+	function appendPresented(strings, index) {
+		var presentedElement = userData.createElement("Presented");
+		presentedElement.textContent = strings[index];
+		userData.getElementsByTagName("Trial")[index].appendChild(presentedElement);   		
+	}
+
+	function appendEntry(index, char) {
+		var ticks = (new Date().getTime() * 10000) + 621355968000000000 ; // https://stackoverflow.com/questions/7966559/how-to-convert-javascript-date-object-to-ticks
+		var seconds = new Date().getTime() / 1000; //convert ms to seconds
+		var entryElement = userData.createElement("Entry");
+		entryElement.setAttribute("char", char);
+        if (char == ' ') { //a space value has to be 32, charCodeAt returns 160
+            entryElement.setAttribute("value", 32);
+        } else if (char === '&#x8;') {
+            console.log('inside');
+            entryElement.setAttribute("value", 8); // a backspace value has to be 8, charCodeAt returns 38;
+        } else {
+            entryElement.setAttribute("value", char.charCodeAt(0));            
+        }
+        console.log(entryElement);
+		entryElement.setAttribute("ticks", ticks);		
+		entryElement.setAttribute("seconds", seconds);
+        console.log(index);
+		userData.getElementsByTagName("Trial")[index].appendChild(entryElement);
+		userData.getElementsByTagName("Trial")[index].setAttribute("entries", entriesCount);        
+	}
+
+	function appendTranscribed(transcription) {
+		var transcribedElement = userData.createElement("Transcribed");
+		transcribedElement.textContent = transcription;
+		userData.getElementsByTagName("Trial")[globalIndex].appendChild(transcribedElement);
+	}
+
+/************************************************************************/	
+
 
     var hammertime = new Hammer(container, );
 
@@ -97,6 +212,8 @@
             if (this.className == "charL") {
                 // currentLetter = letter;
                 message += letter;
+         		appendEntry(globalIndex, letter);
+
                 //var node = document.createTextNode(letter);
                 message1.innerHTML = message;
                 //containerMain[0].appendChild(node);
@@ -107,10 +224,34 @@
                 var br = document.createElement("br");
                 document.getElementsByClassName('history')[0].appendChild(br);
                 //sent.innerHTML = message;
+              
                 message = "";
                 message1.innerHTML = message;
+                entriesCount = 0;
+                // var textVal = $('#inputText h1').text()
+		        // $('#inputText h1').empty();
+		        appendTranscribed(message);
+		        globalIndex++;
+                count.innerHTML = globalIndex +1;
+                console.log(globalIndex);
+                console.log(strings.length);
+                 if (globalIndex > strings.length - 1) { // reached end of string array
+                    alert('test is done!');
 
-            }
+                    console.log('userData = ' + userData);
+                    //create button
+                    // downloadButton = $('<button type="button" class="btn btn-primary">Download Data </button>');
+                    // $('#transcribeText').append(downloadButton);
+                    console.log(downloadButton[0]);
+
+		} 
+        currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>';
+        if (globalIndex < strings.length) {
+    		appendTrial(strings, globalIndex);
+        }
+		console.log(userData);
+        }
+           
         });
 
        hamTouch.on("swipeup", function(event){
@@ -126,28 +267,6 @@
         });
 
 
-//         var hamTouch1 = new Hammer(keyboard1);
-//          hamTouch1.on("swipedown", function(event){
-//                         keyboard1.style.display = "none"
-//                         keyboard2.style.display = "block";
-//                         keyboard3.style.display = "none";
-//                         console.log("display3");
-//                 });
-
-//         var hamTouch2 = new Hammer(keyboard2);
-//  hamTouch2.on("swipedown", function(event){
-//                         keyboard1.style.display = "none"
-//                         keyboard2.style.display = "none";
-//                         keyboard3.style.display = "block";
-//                         console.log("display3");
-//                 });
-//         var hamTouch3 = new Hammer(keyboard3);
-//                  hamTouch3.on("swipedown", function(event){
-//                         keyboard1.style.display = "block"
-//                         keyboard2.style.display = "none";
-//                         keyboard3.style.display = "none";
-//                         console.log("display3");
-//                 });
         hamTouch.on("swipedown", function(event){
 
             //  var classes = ['key1','key2','key3'];
@@ -201,9 +320,13 @@
         hamTouch.on("swipeleft", function(event){
             // containerMain.removeChild(containerMain.lastChild);
             message = message.slice(0,-1);
+        var appendVal = "&#x8;" //backspace character   
+		var val = $('#inputText h1');
+		var valLength = val.text().length;
 
-            // var node = document.createTextNode(message);
-            // document.getElementsByClassName('container')[0].appendChild(node);
+		val.text(val.text().substring(0, valLength - 1));
+        entriesCount++;
+		appendEntry(globalIndex, '&#x8;');
 
             console.log(message);
             message1.innerHTML = message;
@@ -212,30 +335,86 @@
         hamTouch.on("swiperight", function(event){
             message += " ";
             var node = document.createTextNode(" ");
+            var appendVal = "\xa0";
+  		    var val = $('#inputText h1');
+  		    val.text(val.text() + appendVal);
+            entriesCount++;
+		    appendEntry(globalIndex, " ");
             //containerMain[0].appendChild(node);
             message1.innerHTML = message;
+
            console.log(message);
         });
-    });
+   
 
 
 
+/*******************Date stuff for <TextTest> node *********************/
+    var rootElement = userData.documentElement; //grabs the <TextTest node>
+    
+    rootElement.setAttribute("version", "2.7.2");
+    rootElement.setAttribute("trials", strings.length); 
+    rootElement.setAttribute("ticks", (new Date().getTime() * 10000) + 621355968000000000);  
+    rootElement.setAttribute("seconds", new Date().getTime() / 1000);
+    
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var date = new Date();
+    var currentDate = months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() + ' ' + date.getHours()  + ':' + date.getMinutes() + ':' + date.getSeconds();
+    currentDate = formatDate(currentDate);
+    
+    // https://stackoverflow.com/questions/4898574/converting-24-hour-time-to-12-hour-time-w-am-pm-using-javascript
+    function formatDate(date) {
+        var d = new Date(date);
+        var hh = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        var dd = "AM";
+        var h = hh;
+        if (h >= 12) {
+            h = hh - 12;
+            dd = "PM";
+        }
+        if (h == 0) {
+            h = 12;
+        }
+        m = m < 10 ? "0" + m : m;
+
+        s = s < 10 ? "0" + s : s;
+
+        /* if you want 2 digit hours:
+        h = h<10?"0"+h:h; */
+
+        var pattern = new RegExp("0?" + hh + ":" + m + ":" + s);
+
+        var replacement = h + ":" + m;
+        /* if you want to add seconds
+        replacement += ":"+s;  */
+        replacement += " " + dd;
+
+        return date.replace(pattern, replacement);
+    }    
+    
+    var currentDate = days[date.getDay()] + ', ' + currentDate;
+    rootElement.setAttribute("date", currentDate);
+	console.log(userData);
+/************************ download button events ********************/ 
+	$('#download').on('click', downloadButton, function() {
+		var a = document.createElement('a'), xml, ev;
+		a.download = 'Test_Result.xml'; // file name
+		xml = (new XMLSerializer()).serializeToString(userData).replace(/&amp;#x8;/gi, "&#x8;"); // convert node to xml string
+		var xmlNode = '<?xml version = "1.0" encoding="utf-8" standalone="yes"?>';
+		xml = xmlNode + xml;
+		a.href = 'data:application/octet-stream;base64,' + btoa(xml); // create data uri
+		// <a> constructed, simulate mouse click on it
+		ev = document.createEvent("MouseEvents");
+		ev.initMouseEvent("click", true, false, self, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		a.dispatchEvent(ev);
+
+		downloadButton.attr('disabled', 'disabled'); // disable the button after click
+	})
+	
+ });
 
 
-    //    var cont1 = document.getElementById("cont6");
-    //         if (cont1.style.display == 'none') {
-    //             document.getElementById("cont1").style.display = "initial";
-    //                   }
-    //         else {
-    //             console.log("here");
-    //             document.getElementById("cont1").style.display = "none";
-    //         }
-            // // Creates a new paragraph of text from your input element
-            // var txt = document.getElementsByTagName('input')[0].value;
-            // var paragraph = document.createElement("p");
-            // var node = document.createTextNode(txt);
-            // paragraph.appendChild(node);
-            // document.getElementsByClassName('container')[0].appendChild(paragraph);
 
-            // // Clears the text of the input element
-            // document.getElementsByTagName('input')[0].value = '';
