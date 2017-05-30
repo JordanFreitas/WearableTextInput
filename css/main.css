@@ -49,7 +49,7 @@ p {
   width: 53px;
 }
 
-.num {
+#k3cont1 button{
   height: 50px;
   width: 41px;
 }
@@ -80,3 +80,4 @@ p {
 .keyboard3{
   display: none;
 }
+

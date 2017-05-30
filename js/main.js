@@ -285,7 +285,9 @@
 
         // var currentLetter = "";
         $("button").click(function() {
-            var letter = this.id; // or alert($(this).attr('id'));
+             var letter = this.id; // or alert($(this).attr('id'));
+             console.log(letter);
+           
             if (this.className == "charL") {
                 // currentLetter = letter;
                 message += letter;
