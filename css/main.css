@@ -37,16 +37,21 @@ p {
 
 .keyBtn {
   display:inline-block;
-  width: 45px;
+  width: 43px;
   height: 30px;
 }
 
 .charL {
-  margin-bottom: 4px;
+  margin-bottom: 7px;
   margin-right: 2px;
   display:inline-block;
   height: 50px;
-  width: 54px;
+  width: 53px;
+}
+
+.num {
+  height: 50px;
+  width: 41px;
 }
 
 .container {
@@ -69,7 +74,7 @@ p {
 .keyboard1{
   display: block;
 }
-.keyboard2{
+.keyboard2 {
   display:none;
 }
 .keyboard3{

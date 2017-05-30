@@ -71,14 +71,16 @@
 
     // Create a new input element
     var input = document.createElement("input");
+    var keyboard = 1;
+    var section = 1;
     //input.className = "input"; // set the CSS class
 
     // Append the new input element to you DOM in the desired location
     var container = document.getElementById('input-p');
     //container.appendChild(input);
-      var keyboard1 = document.getElementById('key1');
-      var keyboard2 = document.getElementById('key2');
-      var keyboard3 = document.getElementById('key3');
+    var keyboard1 = document.getElementsByClassName('keyboard1');
+    var keyboard2 = document.getElementsByClassName('keyboard2');
+    var keyboard3 = document.getElementsByClassName('keyboard3');
     //   keyboard1.style.display = "block";
     //   keyboard2.style.display = "none";
     //   keyboard3.style.display = "none";
@@ -92,16 +94,17 @@
     var k2cont1 = document.getElementById("k2cont1");
     var k2cont2 = document.getElementById("k2cont2");
     var k2cont3 = document.getElementById("k2cont3");
-
+    var k2cont4 = document.getElementById("k2cont4");
+    var k2cont5 = document.getElementById("k2cont5");
 
     // Assign a click event to your button that:
     document.getElementById("btn1").addEventListener("click", function() {
         cont1.style.display = "block";
         cont2.style.display = "none";
-       cont3.style.display = "none";
-      cont4.style.display = "none";
-       cont5.style.display = "none";
-       //cont6.style.display = "none";
+        cont3.style.display = "none";
+        cont4.style.display = "none";
+        cont5.style.display = "none";
+        section = 1;
     });
     document.getElementById("btn2").addEventListener("click", function() {
          cont1.style.display = "none";
@@ -109,7 +112,7 @@
        cont3.style.display = "none";
        cont4.style.display = "none";
        cont5.style.display = "none";
-       //cont6.style.display = "none";
+       section = 2;
     });
     document.getElementById("btn3").addEventListener("click", function() {
          cont1.style.display = "none";
@@ -117,7 +120,7 @@
        cont3.style.display = "block";
        cont4.style.display = "none";
        cont5.style.display = "none";
-       //cont6.style.display = "none";
+       section = 3;
     });
     document.getElementById("btn4").addEventListener("click", function() {
         cont1.style.display = "none";
@@ -125,7 +128,7 @@
        cont3.style.display = "none";
        cont4.style.display = "block";
        cont5.style.display = "none";
-       //cont6.style.display = "none";
+       section = 4;
     });
     document.getElementById("btn5").addEventListener("click", function() {
         cont1.style.display = "none";
@@ -133,17 +136,91 @@
        cont3.style.display = "none";
        cont4.style.display = "none";
        cont5.style.display = "block";
-       //cont6.style.display = "none";
+       section = 5;
     });
-    // document.getElementById("btn6").addEventListener("click", function() {
-    //    cont1.style.display = "none";
-    //    cont2.style.display = "none";
-    //    cont3.style.display = "none";
-    //    cont4.style.display = "none";
-    //    cont5.style.display = "none";
-    //   // cont6.style.display = "block";
 
-    // });
+    document.getElementById("k2btn1").addEventListener("click", function() {
+        k2cont1.style.display = "block";
+        k2cont2.style.display = "none";
+        k2cont3.style.display = "none";
+        k2cont4.style.display = "none";
+        k2cont5.style.display = "none";
+        section = 1;
+    });
+    document.getElementById("k2btn2").addEventListener("click", function() {
+         k2cont1.style.display = "none";
+        k2cont2.style.display = "block";
+       k2cont3.style.display = "none";
+       k2cont4.style.display = "none";
+       k2cont5.style.display = "none";
+       section = 2;
+    });
+    document.getElementById("k2btn3").addEventListener("click", function() {
+         k2cont1.style.display = "none";
+        k2cont2.style.display = "none";
+       k2cont3.style.display = "block";
+       k2cont4.style.display = "none";
+       k2cont5.style.display = "none";
+       section = 3;
+    });
+    document.getElementById("k2btn4").addEventListener("click", function() {
+        k2cont1.style.display = "none";
+        k2cont2.style.display = "none";
+       k2cont3.style.display = "none";
+       k2cont4.style.display = "block";
+       k2cont5.style.display = "none";
+       section = 4;
+    });
+    document.getElementById("k2btn5").addEventListener("click", function() {
+        k2cont1.style.display = "none";
+        k2cont2.style.display = "none";
+       k2cont3.style.display = "none";
+       k2cont4.style.display = "none";
+       k2cont5.style.display = "block";
+       section = 5;
+    });
+    document.getElementById("k3btn1").addEventListener("click", function() {
+        k3cont1.style.display = "block";
+        k3cont2.style.display = "none";
+        k3cont3.style.display = "none";
+        k3cont4.style.display = "none";
+        k3cont5.style.display = "none";
+        section = 1;
+    });
+    document.getElementById("k3btn2").addEventListener("click", function() {
+         k3cont1.style.display = "none";
+        k3cont2.style.display = "block";
+       k3cont3.style.display = "none";
+       k3cont4.style.display = "none";
+       k3cont5.style.display = "none";
+       section = 2;
+    });
+    document.getElementById("k3btn3").addEventListener("click", function() {
+         k3cont1.style.display = "none";
+        k3cont2.style.display = "none";
+       k3cont3.style.display = "block";
+       k3cont4.style.display = "none";
+       k3cont5.style.display = "none";
+       section = 3;
+    });
+    document.getElementById("k3btn4").addEventListener("click", function() {
+        k3cont1.style.display = "none";
+        k3cont2.style.display = "none";
+       k3cont3.style.display = "none";
+       k3cont4.style.display = "block";
+       k3cont5.style.display = "none";
+       section = 4;
+    });
+    document.getElementById("k3btn5").addEventListener("click", function() {
+        k3cont1.style.display = "none";
+        k3cont2.style.display = "none";
+       k3cont3.style.display = "none";
+       k3cont4.style.display = "none";
+       k3cont5.style.display = "block";
+       section = 5;
+    });
+
+
 
 
 
@@ -257,10 +334,68 @@
        hamTouch.on("swipeup", function(event){
           // cont1.style.visibility = "hidden";
            //k2cont1.style.visibility = 'inherit';
-           $("#cont1").hide();
-           $("#cont2").show();
-           k2cont2.style.display = "none";
-           k2cont3.style.display = "none";
+           if (keyboard == 1) {
+             $(keyboard1).hide();
+             $(keyboard2).show();
+             if (section == 1) {
+               $(cont1).hide();
+               $(k2cont1).show();
+             } else if (section == 2) {
+               $(cont2).hide();
+               $(k2cont2).show();
+             } else if (section == 3) {
+               $(cont3).hide();
+               $(k2cont3).show();
+             } else if (section == 4) {
+               $(cont4).hide();
+               $(k2cont4).show();
+             } else {
+               $(cont5).hide();
+               $(k2cont5).show();
+             }
+             keyboard = 2;
+           } else if (keyboard == 2) {
+             $(keyboard2).hide();
+             $(keyboard3).show();
+             if (section == 1) {
+               $(k2cont1).hide();
+               $(k3cont1).show();
+             } else if (section == 2) {
+               $(k2cont2).hide();
+               $(k3cont2).show();
+             } else if (section == 3) {
+               $(k2cont3).hide();
+               $(k3cont3).show();
+             } else if (section == 4) {
+               $(k2cont4).hide();
+               $(k3cont4).show();
+             } else {
+               $(k2cont5).hide();
+               $(k3cont5).show();
+             }
+             keyboard = 3;
+           } else {
+             $(keyboard3).hide();
+             $(keyboard1).show();
+             if (section == 1) {
+               $(k3cont1).hide();
+               $(cont1).show();
+             } else if (section == 2) {
+               $(k3cont2).hide();
+               $(cont2).show();
+             } else if (section == 3) {
+               $(k3cont3).hide();
+               $(cont3).show();
+             } else if (section == 4) {
+               $(k3cont4).hide();
+               $(cont4).show();
+             } else {
+               $(k3cont5).hide();
+               $(cont5).show();
+             }
+             keyboard = 1;
+           }
+
         //    cont6.style.display = "block";
           // alert("up");
 
@@ -269,41 +404,67 @@
 
         hamTouch.on("swipedown", function(event){
 
-            //  var classes = ['key1','key2','key3'];
-                // $('div').each(function(){
-                    console.log("check");
-                    // this.className1 = classes[($.inArray(this.className, classes)+1)%classes.length];
-                    // this.className2 = classes[($.inArray(this.className, classes)+2)%classes.length];
-                    // this.className3 = classes[($.inArray(this.className, classes)+3)%classes.length];
-                    // console.log(this.className1);
-                    // console.log(this.className2);
-                    // console.log(this.className3);
-
-                    console.log(keyboard1);
-                    // if(document.getElementById('key1').style.display = "block"){
-                    //    keyboard1.style.display = "none"
-                    //     keyboard2.style.display = "block";
-                    //     keyboard3.style.display = "none";
-                    //     console.log("display2");
-                    // }
-                    if(keyboard1.style.display == 'block'){
-                        keyboard1.style.display = "none";
-                        keyboard2.style.display = "block";
-                        keyboard3.style.display = "none";
-                        console.log("display3");
-                    }
-                    if(keyboard2.style.display == 'block'){
-                        keyboard1.style.display = "none";
-                        keyboard2.style.display = "none";
-                        keyboard3.style.display = "block";
-                        console.log("display3");
-                    }
-                    if(keyboard3.style.display == 'block'){
-                        keyboard1.style.display = "block";
-                        keyboard2.style.display = "none";
-                        keyboard3.style.display = "none";
-                        console.log("display1");
-                    }
+                if (keyboard == 1) {
+                  $(keyboard1).hide();
+                  $(keyboard3).show();
+                  if (section == 1) {
+                    $(cont1).hide();
+                    $(k3cont1).show();
+                  } else if (section == 2) {
+                    $(cont2).hide();
+                    $(k3cont2).show();
+                  } else if (section == 3) {
+                    $(cont3).hide();
+                    $(k3cont3).show();
+                  } else if (section == 4) {
+                    $(cont4).hide();
+                    $(k3cont4).show();
+                  } else {
+                    $(cont5).hide();
+                    $(k3cont5).show();
+                  }
+                  keyboard = 3;
+                } else if (keyboard == 2) {
+                  $(keyboard2).hide();
+                  $(keyboard1).show();
+                  if (section == 1) {
+                    $(k2cont1).hide();
+                    $(cont1).show();
+                  } else if (section == 2) {
+                    $(k2cont2).hide();
+                    $(cont2).show();
+                  } else if (section == 3) {
+                    $(k2cont3).hide();
+                    $(cont3).show();
+                  } else if (section == 4) {
+                    $(k2cont4).hide();
+                    $(cont4).show();
+                  } else {
+                    $(k2cont5).hide();
+                    $(cont5).show();
+                  }
+                  keyboard = 1;
+                } else {
+                  $(keyboard3).hide();
+                  $(keyboard2).show();
+                  if (section == 1) {
+                    $(k3cont1).hide();
+                    $(k2cont1).show();
+                  } else if (section == 2) {
+                    $(k3cont2).hide();
+                    $(k2cont2).show();
+                  } else if (section == 3) {
+                    $(k3cont3).hide();
+                    $(k2cont3).show();
+                  } else if (section == 4) {
+                    $(k3cont4).hide();
+                    $(k2cont4).show();
+                  } else {
+                    $(k3cont5).hide();
+                    $(k2cont5).show();
+                  }
+                  keyboard = 2;
+                }
 
                 // });
                 });
