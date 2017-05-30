@@ -5,7 +5,7 @@
 
     var userData = document.implementation.createDocument(null, "TextTest");
     var entriesCount = 0;
-    
+
 	var downloadButton;
 
     var currentString = document.getElementById('displayText');
@@ -61,8 +61,8 @@
                     'Valium in the economy size',
                     'the facts get in the way'
 			];
-	currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>'; 
- 
+	currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>';
+
 	appendTrial(strings, 0); // set initial first trial
 
 
@@ -225,22 +225,22 @@
 
 
     function appendTrial(strings, index) {
-		var trialElement = userData.createElement("Trial");		
+		var trialElement = userData.createElement("Trial");
 		trialElement.setAttribute("number", index + 1); // trial number is not based 0, so add 1
-		if (index < 5) { //first 5 of 45 are just practice 
+		if (index < 5) { //first 5 of 45 are just practice
 			trialElement.setAttribute("testing", "false");
-		} else { 
-			trialElement.setAttribute("testing", "true");		
+		} else {
+			trialElement.setAttribute("testing", "true");
 		}
 		trialElement.setAttribute("entries", entriesCount);
-		userData.getElementsByTagName("TextTest")[0].appendChild(trialElement);	
-		appendPresented(strings, index);	
+		userData.getElementsByTagName("TextTest")[0].appendChild(trialElement);
+		appendPresented(strings, index);
 	}
 
 	function appendPresented(strings, index) {
 		var presentedElement = userData.createElement("Presented");
 		presentedElement.textContent = strings[index];
-		userData.getElementsByTagName("Trial")[index].appendChild(presentedElement);   		
+		userData.getElementsByTagName("Trial")[index].appendChild(presentedElement);
 	}
 
 	function appendEntry(index, char) {
@@ -254,14 +254,14 @@
             console.log('inside');
             entryElement.setAttribute("value", 8); // a backspace value has to be 8, charCodeAt returns 38;
         } else {
-            entryElement.setAttribute("value", char.charCodeAt(0));            
+            entryElement.setAttribute("value", char.charCodeAt(0));
         }
         console.log(entryElement);
-		entryElement.setAttribute("ticks", ticks);		
+		entryElement.setAttribute("ticks", ticks);
 		entryElement.setAttribute("seconds", seconds);
         console.log(index);
 		userData.getElementsByTagName("Trial")[index].appendChild(entryElement);
-		userData.getElementsByTagName("Trial")[index].setAttribute("entries", entriesCount);        
+		userData.getElementsByTagName("Trial")[index].setAttribute("entries", entriesCount);
 	}
 
 	function appendTranscribed(transcription) {
@@ -270,7 +270,7 @@
 		userData.getElementsByTagName("Trial")[globalIndex].appendChild(transcribedElement);
 	}
 
-/************************************************************************/	
+/************************************************************************/
 
 
     var hammertime = new Hammer(container, );
@@ -301,7 +301,7 @@
                 var br = document.createElement("br");
                 document.getElementsByClassName('history')[0].appendChild(br);
                 //sent.innerHTML = message;
-              
+
                 message = "";
                 message1.innerHTML = message;
                 entriesCount = 0;
@@ -321,14 +321,14 @@
                     // $('#transcribeText').append(downloadButton);
                     console.log(downloadButton[0]);
 
-		} 
+		}
         currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>';
         if (globalIndex < strings.length) {
     		appendTrial(strings, globalIndex);
         }
 		console.log(userData);
         }
-           
+
         });
 
        hamTouch.on("swipeup", function(event){
@@ -481,7 +481,7 @@
         hamTouch.on("swipeleft", function(event){
             // containerMain.removeChild(containerMain.lastChild);
             message = message.slice(0,-1);
-        var appendVal = "&#x8;" //backspace character   
+        var appendVal = "&#x8;" //backspace character
 		var val = $('#inputText h1');
 		var valLength = val.text().length;
 
@@ -506,24 +506,24 @@
 
            console.log(message);
         });
-   
+
 
 
 
 /*******************Date stuff for <TextTest> node *********************/
     var rootElement = userData.documentElement; //grabs the <TextTest node>
-    
+
     rootElement.setAttribute("version", "2.7.2");
-    rootElement.setAttribute("trials", strings.length); 
-    rootElement.setAttribute("ticks", (new Date().getTime() * 10000) + 621355968000000000);  
+    rootElement.setAttribute("trials", strings.length);
+    rootElement.setAttribute("ticks", (new Date().getTime() * 10000) + 621355968000000000);
     rootElement.setAttribute("seconds", new Date().getTime() / 1000);
-    
+
     var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var date = new Date();
     var currentDate = months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() + ' ' + date.getHours()  + ':' + date.getMinutes() + ':' + date.getSeconds();
     currentDate = formatDate(currentDate);
-    
+
     // https://stackoverflow.com/questions/4898574/converting-24-hour-time-to-12-hour-time-w-am-pm-using-javascript
     function formatDate(date) {
         var d = new Date(date);
@@ -554,12 +554,12 @@
         replacement += " " + dd;
 
         return date.replace(pattern, replacement);
-    }    
-    
+    }
+
     var currentDate = days[date.getDay()] + ', ' + currentDate;
     rootElement.setAttribute("date", currentDate);
 	console.log(userData);
-/************************ download button events ********************/ 
+/************************ download button events ********************/
 	$('#download').on('click', downloadButton, function() {
 		var a = document.createElement('a'), xml, ev;
 		a.download = 'Test_Result.xml'; // file name
@@ -574,8 +574,5 @@
 
 		downloadButton.attr('disabled', 'disabled'); // disable the button after click
 	})
-	
+
  });
-
-
-
