@@ -229,7 +229,7 @@
 /************************************************************************/
 
 
-    var hammertime = new Hammer(container, );
+    // var hammertime = new Hammer(container, );
 
         var touchTest = document.getElementById("touchTest");
         var hamTouch = new Hammer(touchTest);
