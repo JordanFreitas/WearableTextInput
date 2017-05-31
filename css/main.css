@@ -2,20 +2,30 @@ p {
   opacity:.7
 }
 
+#displayText {
+
+}
+
 .history {
   height: 75px;
   border: 1px solid gray;
+  margin-bottom: 5px;
   max-width: 246px;
-  overflow-y: scroll;
   border-color: white;
+  background: white;
+  border-radius: 2px;
+  position: fixed;
+  top: 50%;
+  left: 40%;
 }
 
 .send {
   float: right;
   height: 35px;
   z-index: 10;
-  color: #b7b9bc;
-  
+  background-color: #b7b9bc;
+  border:0px;
+  color: white;
 }
 
 #msg1 {
@@ -28,7 +38,7 @@ p {
   border: 1px solid gray;
   padding-left: 3px;
   margin-top: 2px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   word-wrap: break-word;
   overflow: hidden;
   margin-bottom: 5px;
@@ -43,13 +53,15 @@ p {
 
 .keyBtn {
   display:inline-block;
-  width: 43px;
+  width: 44px;
   height: 30px;
   font-size: 20px;
   margin-bottom: 5px;
   color: #b7b9bc;
   border: 0px;
   background-color: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #888888;
 }
 
 .charL {
@@ -57,7 +69,7 @@ p {
   margin-right: 2px;
   display:inline-block;
   height: 50px;
-  width: 53px;
+  width: 55px;
   font-size: 25px;
   color: #b7b9bc;
   background-color: white;
@@ -79,9 +91,9 @@ p {
     padding: 10px;
     box-shadow: 5px 5px 10px #888888;
     position:fixed;
-    top:40%;
+    top:20%;
     left:40%;
-    background-color: #e8ebef
+    background-color: #e8ebef;
 }
 .cc{
   height: 280px;
@@ -98,4 +110,19 @@ p {
 }
 .keyboard3{
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 272px;
+      border: 2px solid gray;
+      border-radius: 10px;
+      border:0px;
+      padding: 10px;
+      box-shadow: 5px 5px 10px #888888;
+      position:fixed;
+      top:20%;
+      left:10%;
+      background-color: #e8ebef
+  }
 }
