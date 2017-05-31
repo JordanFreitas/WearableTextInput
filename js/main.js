@@ -4,7 +4,7 @@
  document.addEventListener("DOMContentLoaded", function(event) {
 
     var userData = document.implementation.createDocument(null, "TextTest");
-    var entriesCount = 0;
+    var entriesCount = 1;
 
 	var downloadButton;
 
@@ -63,7 +63,7 @@
 			];
 	currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>';
 
-	appendTrial(strings, 0); // set initial first trial
+	appendTrial(strings, globalIndex); // set initial first trial
 
 
 
@@ -224,51 +224,7 @@
 
 
 
-    function appendTrial(strings, index) {
-		var trialElement = userData.createElement("Trial");
-		trialElement.setAttribute("number", index + 1); // trial number is not based 0, so add 1
-		if (index < 5) { //first 5 of 45 are just practice
-			trialElement.setAttribute("testing", "false");
-		} else {
-			trialElement.setAttribute("testing", "true");
-		}
-		trialElement.setAttribute("entries", entriesCount);
-		userData.getElementsByTagName("TextTest")[0].appendChild(trialElement);
-		appendPresented(strings, index);
-	}
-
-	function appendPresented(strings, index) {
-		var presentedElement = userData.createElement("Presented");
-		presentedElement.textContent = strings[index];
-		userData.getElementsByTagName("Trial")[index].appendChild(presentedElement);
-	}
-
-	function appendEntry(index, char) {
-		var ticks = (new Date().getTime() * 10000) + 621355968000000000 ; // https://stackoverflow.com/questions/7966559/how-to-convert-javascript-date-object-to-ticks
-		var seconds = new Date().getTime() / 1000; //convert ms to seconds
-		var entryElement = userData.createElement("Entry");
-		entryElement.setAttribute("char", char);
-        if (char == ' ') { //a space value has to be 32, charCodeAt returns 160
-            entryElement.setAttribute("value", 32);
-        } else if (char === '&#x8;') {
-            console.log('inside');
-            entryElement.setAttribute("value", 8); // a backspace value has to be 8, charCodeAt returns 38;
-        } else {
-            entryElement.setAttribute("value", char.charCodeAt(0));
-        }
-        console.log(entryElement);
-		entryElement.setAttribute("ticks", ticks);
-		entryElement.setAttribute("seconds", seconds);
-        console.log(index);
-		userData.getElementsByTagName("Trial")[index].appendChild(entryElement);
-		userData.getElementsByTagName("Trial")[index].setAttribute("entries", entriesCount);
-	}
-
-	function appendTranscribed(transcription) {
-		var transcribedElement = userData.createElement("Transcribed");
-		transcribedElement.textContent = transcription;
-		userData.getElementsByTagName("Trial")[globalIndex].appendChild(transcribedElement);
-	}
+    
 
 /************************************************************************/
 
@@ -295,6 +251,7 @@
 
                 //var node = document.createTextNode(letter);
                 message1.innerHTML = message;
+                entriesCount ++;
                 //containerMain[0].appendChild(node);
                 //console.log(message);
             } else if (this.className == "send") {
@@ -302,33 +259,31 @@
                 document.getElementsByClassName('history')[0].appendChild(node);
                 var br = document.createElement("br");
                 document.getElementsByClassName('history')[0].appendChild(br);
-                //sent.innerHTML = message;
-
+                appendTranscribed(message);
                 message = "";
                 message1.innerHTML = message;
-                entriesCount = 0;
+               
                 // var textVal = $('#inputText h1').text()
 		        // $('#inputText h1').empty();
-		        appendTranscribed(message);
+		       
 		        globalIndex++;
                 count.innerHTML = globalIndex +1;
-                console.log(globalIndex);
-                console.log(strings.length);
+                // console.log(globalIndex);
+                // console.log(strings.length);
                  if (globalIndex > strings.length - 1) { // reached end of string array
                     alert('test is done!');
 
-                    console.log('userData = ' + userData);
-                    //create button
-                    // downloadButton = $('<button type="button" class="btn btn-primary">Download Data </button>');
-                    // $('#transcribeText').append(downloadButton);
-                    console.log(downloadButton[0]);
+                    // console.log('userData = ' + userData);
+                    // console.log(downloadButton[0]);
 
 		}
         currentString.innerHTML = '<p>' + strings[globalIndex] + '</p>';
         if (globalIndex < strings.length) {
     		appendTrial(strings, globalIndex);
         }
+        // console.log(entriesCount);
 		console.log(userData);
+      entriesCount = 1;
         }
 
         });
@@ -561,6 +516,51 @@
     var currentDate = days[date.getDay()] + ', ' + currentDate;
     rootElement.setAttribute("date", currentDate);
 	console.log(userData);
+  function appendTrial(strings, index) {
+		var trialElement = userData.createElement("Trial");
+		trialElement.setAttribute("number", index + 1); // trial number is not based 0, so add 1
+		if (index < 5) { //first 5 of 45 are just practice
+			trialElement.setAttribute("testing", "false");
+		} else {
+			trialElement.setAttribute("testing", "true");
+		}
+		trialElement.setAttribute("entries", entriesCount);
+		userData.getElementsByTagName("TextTest")[0].appendChild(trialElement);
+		appendPresented(strings, index);
+	}
+
+	function appendPresented(strings, index) {
+		var presentedElement = userData.createElement("Presented");
+		presentedElement.textContent = strings[index];
+		userData.getElementsByTagName("Trial")[index].appendChild(presentedElement);
+	}
+
+	function appendEntry(index, char) {
+		var ticks = (new Date().getTime() * 10000) + 621355968000000000 ; // https://stackoverflow.com/questions/7966559/how-to-convert-javascript-date-object-to-ticks
+		var seconds = new Date().getTime() / 1000; //convert ms to seconds
+		var entryElement = userData.createElement("Entry");
+		entryElement.setAttribute("char", char);
+        if (char == ' ') { //a space value has to be 32, charCodeAt returns 160
+            entryElement.setAttribute("value", 32);
+        } else if (char === '&#x8;') {
+            console.log('inside');
+            entryElement.setAttribute("value", 8); // a backspace value has to be 8, charCodeAt returns 38;
+        } else {
+            entryElement.setAttribute("value", char.charCodeAt(0));
+        }
+        console.log(entryElement);
+		entryElement.setAttribute("ticks", ticks);
+		entryElement.setAttribute("seconds", seconds);
+        console.log(index);
+		userData.getElementsByTagName("Trial")[index].appendChild(entryElement);
+		userData.getElementsByTagName("Trial")[index].setAttribute("entries", entriesCount);
+	}
+
+	function appendTranscribed(transcription) {
+		var transcribedElement = userData.createElement("Transcribed");
+		transcribedElement.textContent = transcription;
+		userData.getElementsByTagName("Trial")[globalIndex].appendChild(transcribedElement);
+	}
 /************************ download button events ********************/
 	$('#download').on('click', downloadButton, function() {
 		var a = document.createElement('a'), xml, ev;
@@ -574,7 +574,6 @@
 		ev.initMouseEvent("click", true, false, self, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 		a.dispatchEvent(ev);
 
-		downloadButton.attr('disabled', 'disabled'); // disable the button after click
 	})
 
  });
