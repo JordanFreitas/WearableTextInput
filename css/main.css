@@ -21,15 +21,19 @@ p {
 
 .send {
   float: right;
-  height: 35px;
+    height: 55px;
   z-index: 10;
   background-color: #b7b9bc;
   border:0px;
   color: white;
+
 }
 
 #msg1 {
-  width: 180px;
+    padding-top: 0px;
+    padding-left: 5px;
+    width: 150px;
+    font-size: .9em;
   display:inline-block;
 }
 .text {
@@ -48,12 +52,12 @@ p {
 
 .sectionBtn {
   position: absolute;
-  bottom: 0;
+  bottom: 4.5px;
 }
 
 .keyBtn {
   display:inline-block;
-  width: 38px;
+  width: 37px;
   height: 30px;
   font-size: 20px;
   margin-bottom: 5px;
@@ -65,24 +69,30 @@ p {
 }
 
 .charL {
-  margin-bottom: 7px;
-  margin-right: 2px;
-  display:inline-block;
-  height: 50px;
-  width: 45px;
-  font-size: 25px;
-  color: #b7b9bc;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 1px 1px 2px #888888;
-  border:0px;
+      margin-bottom: 7px;
+    margin-right: 1.3px;
+    margin-left: 1.3px;
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    font-size: 25px;
+    color: #b7b9bc;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #888888;
+    border: 0px;
+    margin-top: 7px;
 }
 
 #k3cont1 button{
-  height: 50px;
-  width: 41px;
+      height: 50px;
+    width: 34.5px;
 }
-
+.displayDis{
+      text-align: center;
+    margin-top: 50px;
+    font-size: 1.5em;
+}
 .container {
   max-width: 233px;
     border: 2px solid gray;
@@ -91,8 +101,8 @@ p {
     padding: 10px;
     box-shadow: 5px 5px 10px #888888;
     position:fixed;
-    top:20%;
-    left:40%;
+    top: 35%;
+    left: 18%;
     background-color: #e8ebef;
 }
 .cc{
@@ -111,6 +121,25 @@ p {
 .keyboard3{
   display: none;
 }
+.trialNum{
+      text-align: center;
+    font-size: 1.1em;
+}
+.counter{
+      text-align: center;
+    font-size: 1.1em;
+}
+.downloadBtn{
+
+    display: inline-block;
+    font-size: 25px;
+    color: #b7b9bc;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #888888;
+    border: 0px;
+
+}
 
 @media screen and (max-width: 600px) {
   .container {
@@ -121,8 +150,8 @@ p {
       padding: 10px;
       box-shadow: 5px 5px 10px #888888;
       position:fixed;
-      top:20%;
-      left:10%;
+    top: 35%;
+    left: 18%;
       background-color: #e8ebef
   }
   .cc{
