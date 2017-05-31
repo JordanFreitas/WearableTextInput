@@ -131,14 +131,17 @@ p {
 }
 .downloadBtn{
 
+    width: 50%;
+    margin-top: 444px;
+    margin-left: 24%;
+    margin-right: 15%;
     display: inline-block;
-    font-size: 25px;
-    color: #b7b9bc;
-    background-color: white;
+    font-size: 24px;
+    color: black;
+    background-color: lightgray;
     border-radius: 5px;
     box-shadow: 1px 1px 2px #888888;
     border: 0px;
-
 }
 
 @media screen and (max-width: 600px) {
