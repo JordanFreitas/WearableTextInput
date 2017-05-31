@@ -33,7 +33,7 @@ p {
   display:inline-block;
 }
 .text {
-  height: 35px;
+  height: 55px;
   max-width: 246px;
   border: 1px solid gray;
   padding-left: 3px;
@@ -53,7 +53,7 @@ p {
 
 .keyBtn {
   display:inline-block;
-  width: 44px;
+  width: 38px;
   height: 30px;
   font-size: 20px;
   margin-bottom: 5px;
@@ -69,7 +69,7 @@ p {
   margin-right: 2px;
   display:inline-block;
   height: 50px;
-  width: 55px;
+  width: 45px;
   font-size: 25px;
   color: #b7b9bc;
   background-color: white;
