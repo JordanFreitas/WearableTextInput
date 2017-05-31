@@ -96,7 +96,7 @@
     var k2cont3 = document.getElementById("k2cont3");
     var k2cont4 = document.getElementById("k2cont4");
     var k2cont5 = document.getElementById("k2cont5");
-
+    cont1.style.display = "block";
     // Assign a click event to your button that:
     document.getElementById("btn1").addEventListener("click", function() {
         cont1.style.display = "block";
@@ -287,7 +287,7 @@
         $("button").click(function() {
              var letter = this.id; // or alert($(this).attr('id'));
              console.log(letter);
-           
+
             if (this.className == "charL") {
                 // currentLetter = letter;
                 message += letter;

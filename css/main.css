@@ -6,13 +6,16 @@ p {
   height: 75px;
   border: 1px solid gray;
   max-width: 246px;
-  overflow-y: scroll
+  overflow-y: scroll;
+  border-color: white;
 }
 
 .send {
   float: right;
   height: 35px;
   z-index: 10;
+  color: #b7b9bc;
+  
 }
 
 #msg1 {
@@ -28,6 +31,9 @@ p {
   margin-bottom: 2px;
   word-wrap: break-word;
   overflow: hidden;
+  margin-bottom: 5px;
+  border-color: white;
+  background-color: white;
 }
 
 .sectionBtn {
@@ -39,6 +45,11 @@ p {
   display:inline-block;
   width: 43px;
   height: 30px;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #b7b9bc;
+  border: 0px;
+  background-color: white;
 }
 
 .charL {
@@ -47,6 +58,12 @@ p {
   display:inline-block;
   height: 50px;
   width: 53px;
+  font-size: 25px;
+  color: #b7b9bc;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px #888888;
+  border:0px;
 }
 
 #k3cont1 button{
@@ -58,14 +75,16 @@ p {
   max-width: 272px;
     border: 2px solid gray;
     border-radius: 10px;
+    border:0px;
     padding: 10px;
     box-shadow: 5px 5px 10px #888888;
     position:fixed;
     top:40%;
     left:40%;
+    background-color: #e8ebef
 }
 .cc{
-  height: 272px;
+  height: 280px;
   /*width: 272px;*/
 }
 .charCont{
@@ -80,4 +99,3 @@ p {
 .keyboard3{
   display: none;
 }
-
